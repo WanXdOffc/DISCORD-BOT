@@ -19,7 +19,7 @@
     "ai",
     "moderation"
   ],
-  "author": "Your Name",
+  "author": "Darmawan",
   "license": "MIT",
   "dependencies": {
     "@discordjs/voice": "^0.17.0",
