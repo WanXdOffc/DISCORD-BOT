@@ -1,9 +1,9 @@
 # HOSEI BOT
 
-<<<<<<< HEAD
+<<<<<<<
 ntahlah gw juga bingung
 =======
-ntahlah gw juga bingung
+
 
 ## How Run This Code : 
 ```bash
