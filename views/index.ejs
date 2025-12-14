@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Hosei BOT - Advanced Discord Bot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #5865F2;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #4752C4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(88, 101, 242, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s;
+      animation: fadeIn 1s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .feature-desc {
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 3rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      animation: fadeIn 1.5s;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-label {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      🤖 Discord Hosei BOT
+    </div>
+    <div class="nav-buttons">
+      <% if (user) { %>
+        <div class="user-info">
+          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
+               alt="Avatar" class="user-avatar">
+          <span><%= user.username %></span>
+        </div>
+        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+        <a href="/logout" class="btn btn-secondary">Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-primary">Login with Discord</a>
+      <% } %>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>🚀 Welcome to Hosei BOT</h1>
+    <p>The Ultimate All-in-One Discord Bot with Music, AI Chat, Moderation, and More!</p>
+    <% if (!user) { %>
+      <a href="/login" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">
+        Get Started Now
+      </a>
+    <% } %>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number"><%= client.guilds.cache.size %></div>
+      <div class="stat-label">Servers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">
+        <%= client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0).toLocaleString() %>
+      </div>
+      <div class="stat-label">Users</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><%= client.commands.size %></div>
+      <div class="stat-label">Commands</div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🎵</div>
+      <div class="feature-title">High Quality Music</div>
+      <div class="feature-desc">
+        Play music from Spotify, YouTube, and SoundCloud with advanced controls and filters.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title">AI Chat Integration</div>
+      <div class="feature-desc">
+        Powered by OpenAI/OpenRouter for intelligent conversations in your server.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <div class="feature-title">Advanced Moderation</div>
+      <div class="feature-desc">
+        Auto-mod, anti-spam, verification system to keep your server safe.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">Economy System</div>
+      <div class="feature-desc">
+        Complete currency system with daily rewards, quests, and leaderboards.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Leveling System</div>
+      <div class="feature-desc">
+        Track member activity with XP, levels, and role rewards.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🎮</div>
+      <div class="feature-title">Fun Games</div>
+      <div class="feature-desc">
+        RPG adventures, trivia, TicTacToe, and more interactive games.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <div class="feature-title">Custom Welcome Cards</div>
+      <div class="feature-desc">
+        Beautiful welcome and goodbye images generated with Canvas.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">⚙️</div>
+      <div class="feature-title">Web Dashboard</div>
+      <div class="feature-desc">
+        Easy-to-use web interface to manage all bot settings and features.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
