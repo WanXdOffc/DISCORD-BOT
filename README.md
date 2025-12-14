@@ -8,6 +8,7 @@ ntahlah gw juga bingung
 npm install
 
 #run code
-npm start```
+npm start
+```
 
 **I Ketut Dharmawan**
