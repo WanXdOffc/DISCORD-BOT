@@ -1,6 +1,5 @@
 # HOSEI BOT
 
-<<<<<<<
 ntahlah gw juga bingung
 =======
 
@@ -14,5 +13,6 @@ npm install
 npm start
 ```
 
+## Admin wok
+
 **I Ketut Dharmawan**
->>>>>>> 6cc189040a82ac1db4a6fc54fc8d1abcf3d22c6a
