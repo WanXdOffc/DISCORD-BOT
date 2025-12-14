@@ -1,0 +1,6 @@
+2025-12-14 22:38:17 [ERROR]: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\mongoose\lib\connection.js:1169:11)
+    at NativeConnection.openUri (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\mongoose\lib\connection.js:1100:11)
+    at async connectDatabase (file:///C:/Users/Darmawan/OneDrive/Desktop/Javascript/Discord-BOT/lib/database/connect.js:16:18)
+    at async startup (file:///C:/Users/Darmawan/OneDrive/Desktop/Javascript/Discord-BOT/index.js:44:5)
