@@ -1,9 +1,8 @@
 # HOSEI BOT
 
-<<<<<<< HEAD
 ntahlah gw juga bingung
 =======
-ntahlah gw juga bingung
+
 
 ## How Run This Code : 
 ```bash
@@ -14,5 +13,6 @@ npm install
 npm start
 ```
 
+## Admin wok
+
 **I Ketut Dharmawan**
->>>>>>> 6cc189040a82ac1db4a6fc54fc8d1abcf3d22c6a

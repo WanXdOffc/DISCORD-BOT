@@ -2,7 +2,9 @@ import { Client, GatewayIntentBits, Collection, Partials } from 'discord.js';
 import config from './config.js';
 import connectDatabase from './lib/database/connect.js';
 import { loadCommands, loadEvents } from './lib/handlers/loader.js';
+import { setupMusicPlayer } from './lib/handlers/musicPlayer.js';
 import logger from './lib/utils/logger.js';
+import WebServer from './lib/web/server.js';
 
 // Initialize Discord Client with all necessary intents
 const client = new Client({
@@ -57,6 +59,19 @@ async function startup() {
     // Login to Discord
     logger.info('🔐 Logging in to Discord...');
     await client.login(config.discord.token);
+
+    // Wait for client to be ready before starting web server
+    client.once('ready', async () => {
+      // Setup Music Player
+      logger.info('🎵 Setting up Music Player...');
+      await setupMusicPlayer(client);
+      
+      // Start Web Dashboard
+      logger.info('🌐 Starting Web Dashboard...');
+      const webServer = new WebServer(client);
+      webServer.start();
+      client.webServer = webServer;
+    });
 
   } catch (error) {
     logger.error('❌ Fatal error during startup:', error);

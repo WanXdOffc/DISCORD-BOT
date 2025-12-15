@@ -134,3 +134,685 @@ MongooseServerSelectionError: Could not connect to any servers in your MongoDB A
 2025-12-15 00:18:57 [INFO]: 🎨 Rich Presence started with theme: default
 2025-12-15 00:18:57 [INFO]: ✅ Bot is ready and online!
 2025-12-15 00:18:57 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 11:55:57 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 11:55:57 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 11:55:58 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 11:55:58 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 11:55:58 [INFO]: ✅ Database connected successfully
+2025-12-15 11:55:58 [INFO]: 📝 Loading commands...
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 11:56:01 [INFO]: 📝 Total commands loaded: 10
+2025-12-15 11:56:01 [INFO]: ✅ Loaded 10 commands
+2025-12-15 11:56:01 [INFO]: 🎯 Loading events...
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 11:56:01 [INFO]:   ✓ Loaded event: ready
+2025-12-15 11:56:01 [INFO]: 🎯 Total events loaded: 2
+2025-12-15 11:56:01 [INFO]: ✅ Events loaded successfully
+2025-12-15 11:56:01 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 11:56:02 [INFO]: ==================================================
+2025-12-15 11:56:02 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 11:56:02 [INFO]: 📊 Serving 2 servers
+2025-12-15 11:56:02 [INFO]: 👥 Watching 19 users
+2025-12-15 11:56:02 [INFO]: 📝 Loaded 10 commands
+2025-12-15 11:56:02 [INFO]: ==================================================
+2025-12-15 11:56:02 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 11:56:02 [INFO]: ✅ Bot is ready and online!
+2025-12-15 11:56:02 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 11:56:19 [INFO]: xwan.offc used /ping in WanXD Official
+2025-12-15 12:08:06 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 12:08:25 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 12:08:25 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 12:08:27 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 12:08:27 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 12:08:27 [INFO]: ✅ Database connected successfully
+2025-12-15 12:08:27 [INFO]: 📝 Loading commands...
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:08:27 [INFO]: 📝 Total commands loaded: 15
+2025-12-15 12:08:27 [INFO]: ✅ Loaded 15 commands
+2025-12-15 12:08:27 [INFO]: 🎯 Loading events...
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 12:08:27 [INFO]:   ✓ Loaded event: ready
+2025-12-15 12:08:27 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 12:08:27 [INFO]: ✅ Events loaded successfully
+2025-12-15 12:08:27 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 12:08:30 [INFO]: ==================================================
+2025-12-15 12:08:30 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 12:08:30 [INFO]: 📊 Serving 2 servers
+2025-12-15 12:08:30 [INFO]: 👥 Watching 19 users
+2025-12-15 12:08:30 [INFO]: 📝 Loaded 15 commands
+2025-12-15 12:08:30 [INFO]: ==================================================
+2025-12-15 12:08:30 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 12:08:30 [INFO]: ✅ Bot is ready and online!
+2025-12-15 12:08:30 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 12:08:30 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 12:08:30 [INFO]: ✅ Express middleware configured
+2025-12-15 12:08:30 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 12:08:30 [INFO]: ✅ Express routes configured
+2025-12-15 12:08:30 [INFO]: ==================================================
+2025-12-15 12:08:30 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 12:08:30 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 12:08:30 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 12:08:30 [INFO]: ==================================================
+2025-12-15 12:10:24 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 12:11:37 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 12:11:37 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 12:11:38 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 12:11:38 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 12:11:38 [INFO]: ✅ Database connected successfully
+2025-12-15 12:11:38 [INFO]: 📝 Loading commands...
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:11:38 [INFO]: 📝 Total commands loaded: 15
+2025-12-15 12:11:38 [INFO]: ✅ Loaded 15 commands
+2025-12-15 12:11:38 [INFO]: 🎯 Loading events...
+2025-12-15 12:11:38 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 12:11:39 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 12:11:39 [INFO]:   ✓ Loaded event: ready
+2025-12-15 12:11:39 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 12:11:39 [INFO]: ✅ Events loaded successfully
+2025-12-15 12:11:39 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 12:11:40 [INFO]: ==================================================
+2025-12-15 12:11:40 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 12:11:40 [INFO]: 📊 Serving 2 servers
+2025-12-15 12:11:40 [INFO]: 👥 Watching 19 users
+2025-12-15 12:11:40 [INFO]: 📝 Loaded 15 commands
+2025-12-15 12:11:40 [INFO]: ==================================================
+2025-12-15 12:11:40 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 12:11:40 [INFO]: ✅ Bot is ready and online!
+2025-12-15 12:11:40 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 12:11:40 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 12:11:42 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 12:11:42 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 12:11:42 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 12:11:42 [INFO]: ✅ Express middleware configured
+2025-12-15 12:11:42 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 12:11:42 [INFO]: ✅ Express routes configured
+2025-12-15 12:11:42 [INFO]: ==================================================
+2025-12-15 12:11:42 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 12:11:42 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 12:11:42 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 12:11:42 [INFO]: ==================================================
+2025-12-15 12:12:14 [INFO]: 📝 Loading commands for deployment...
+2025-12-15 12:12:14 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:12:14 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:12:14 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:12:15 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:12:15 [INFO]: 📦 Total commands to deploy: 15
+2025-12-15 12:12:15 [INFO]: 🚀 Starting deployment...
+2025-12-15 12:12:16 [INFO]: ==================================================
+2025-12-15 12:12:16 [INFO]: ✅ Successfully deployed 15 slash commands globally!
+2025-12-15 12:12:16 [INFO]: ==================================================
+2025-12-15 12:12:16 [INFO]: 
+📋 Deployed Commands:
+2025-12-15 12:12:16 [INFO]:   1. /ban - Ban a member from the server
+2025-12-15 12:12:16 [INFO]:   2. /kick - Kick a member from the server
+2025-12-15 12:12:16 [INFO]:   3. /timeout - Timeout a member
+2025-12-15 12:12:16 [INFO]:   4. /loop - Set the loop mode
+2025-12-15 12:12:16 [INFO]:   5. /nowplaying - Show information about the current song
+2025-12-15 12:12:16 [INFO]:   6. /pause - Pause or resume the current song
+2025-12-15 12:12:16 [INFO]:   7. /play - Play music from various sources
+2025-12-15 12:12:16 [INFO]:   8. /queue - Show the current music queue
+2025-12-15 12:12:16 [INFO]:   9. /skip - Skip the current song
+2025-12-15 12:12:16 [INFO]:   10. /stop - Stop the music and clear the queue
+2025-12-15 12:12:16 [INFO]:   11. /volume - Adjust the music volume
+2025-12-15 12:12:16 [INFO]:   12. /clear-ai - Clear AI chat conversation history in this channel
+2025-12-15 12:12:16 [INFO]:   13. /help - Show all available commands and features
+2025-12-15 12:12:16 [INFO]:   14. /ping - Check bot latency and response time
+2025-12-15 12:12:16 [INFO]:   15. /presence - Manage bot rich presence (Owner only)
+2025-12-15 12:12:39 [INFO]: xwan.offc used /ping in WanXD Official
+2025-12-15 12:12:41 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 12:12:53 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 12:12:53 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 12:12:54 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 12:12:54 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 12:12:54 [INFO]: ✅ Database connected successfully
+2025-12-15 12:12:54 [INFO]: 📝 Loading commands...
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:12:54 [INFO]: 📝 Total commands loaded: 15
+2025-12-15 12:12:54 [INFO]: ✅ Loaded 15 commands
+2025-12-15 12:12:54 [INFO]: 🎯 Loading events...
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 12:12:54 [INFO]:   ✓ Loaded event: ready
+2025-12-15 12:12:54 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 12:12:54 [INFO]: ✅ Events loaded successfully
+2025-12-15 12:12:54 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 12:12:55 [INFO]: ==================================================
+2025-12-15 12:12:55 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 12:12:55 [INFO]: 📊 Serving 2 servers
+2025-12-15 12:12:55 [INFO]: 👥 Watching 19 users
+2025-12-15 12:12:55 [INFO]: 📝 Loaded 15 commands
+2025-12-15 12:12:55 [INFO]: ==================================================
+2025-12-15 12:12:55 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 12:12:55 [INFO]: ✅ Bot is ready and online!
+2025-12-15 12:12:55 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 12:12:55 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 12:12:58 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 12:12:58 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 12:12:58 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 12:12:58 [INFO]: ✅ Express middleware configured
+2025-12-15 12:12:58 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 12:12:58 [INFO]: ✅ Express routes configured
+2025-12-15 12:12:58 [INFO]: ==================================================
+2025-12-15 12:12:58 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 12:12:58 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 12:12:58 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 12:12:58 [INFO]: ==================================================
+2025-12-15 12:18:49 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 12:19:27 [INFO]: 📝 Loading commands for deployment...
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:19:27 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:19:27 [INFO]: 📦 Total commands to deploy: 15
+2025-12-15 12:19:27 [INFO]: 🚀 Starting deployment...
+2025-12-15 12:19:28 [INFO]: ==================================================
+2025-12-15 12:19:28 [INFO]: ✅ Successfully deployed 15 slash commands globally!
+2025-12-15 12:19:28 [INFO]: ==================================================
+2025-12-15 12:19:28 [INFO]: 
+📋 Deployed Commands:
+2025-12-15 12:19:28 [INFO]:   1. /ban - Ban a member from the server
+2025-12-15 12:19:28 [INFO]:   2. /kick - Kick a member from the server
+2025-12-15 12:19:28 [INFO]:   3. /timeout - Timeout a member
+2025-12-15 12:19:28 [INFO]:   4. /loop - Set the loop mode
+2025-12-15 12:19:28 [INFO]:   5. /nowplaying - Show information about the current song
+2025-12-15 12:19:28 [INFO]:   6. /pause - Pause or resume the current song
+2025-12-15 12:19:28 [INFO]:   7. /play - Play music from various sources
+2025-12-15 12:19:28 [INFO]:   8. /queue - Show the current music queue
+2025-12-15 12:19:28 [INFO]:   9. /skip - Skip the current song
+2025-12-15 12:19:28 [INFO]:   10. /stop - Stop the music and clear the queue
+2025-12-15 12:19:28 [INFO]:   11. /volume - Adjust the music volume
+2025-12-15 12:19:28 [INFO]:   12. /clear-ai - Clear AI chat conversation history in this channel
+2025-12-15 12:19:28 [INFO]:   13. /help - Show all available commands and features
+2025-12-15 12:19:28 [INFO]:   14. /ping - Check bot latency and response time
+2025-12-15 12:19:28 [INFO]:   15. /presence - Manage bot rich presence (Owner only)
+2025-12-15 12:19:41 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 12:19:41 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 12:19:42 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 12:19:42 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 12:19:42 [INFO]: ✅ Database connected successfully
+2025-12-15 12:19:42 [INFO]: 📝 Loading commands...
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:19:42 [INFO]: 📝 Total commands loaded: 15
+2025-12-15 12:19:42 [INFO]: ✅ Loaded 15 commands
+2025-12-15 12:19:42 [INFO]: 🎯 Loading events...
+2025-12-15 12:19:42 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 12:19:43 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 12:19:43 [INFO]:   ✓ Loaded event: ready
+2025-12-15 12:19:43 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 12:19:43 [INFO]: ✅ Events loaded successfully
+2025-12-15 12:19:43 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 12:19:44 [INFO]: ==================================================
+2025-12-15 12:19:44 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 12:19:44 [INFO]: 📊 Serving 2 servers
+2025-12-15 12:19:44 [INFO]: 👥 Watching 19 users
+2025-12-15 12:19:44 [INFO]: 📝 Loaded 15 commands
+2025-12-15 12:19:44 [INFO]: ==================================================
+2025-12-15 12:19:44 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 12:19:44 [INFO]: ✅ Bot is ready and online!
+2025-12-15 12:19:44 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 12:19:44 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 12:19:46 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 12:19:46 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 12:19:46 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 12:19:46 [INFO]: ✅ Express middleware configured
+2025-12-15 12:19:46 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 12:19:46 [INFO]: ✅ Express routes configured
+2025-12-15 12:19:46 [INFO]: ==================================================
+2025-12-15 12:19:46 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 12:19:46 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 12:19:46 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 12:19:46 [INFO]: ==================================================
+2025-12-15 12:20:13 [INFO]: xwan.offc used /presence in WanXD Official
+2025-12-15 12:23:15 [INFO]: xwan.offc used /help in WanXD Official
+2025-12-15 12:23:36 [INFO]: Select menu: help-category by xwan.offc
+2025-12-15 12:24:01 [INFO]: xwan.offc used /help in WanXD Official
+2025-12-15 12:24:25 [INFO]: xwan.offc used /play in WanXD Official
+2025-12-15 12:25:06 [ERROR]: Player error in WanXD Official: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+Error: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+    at chooseEncryptionMode (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:529:11)
+    at C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:721:21
+2025-12-15 12:25:06 [ERROR]: Player error in WanXD Official: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+Error: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+    at chooseEncryptionMode (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:529:11)
+    at C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:721:21
+2025-12-15 12:25:06 [INFO]: xwan.offc used /play in WanXD Official
+2025-12-15 12:28:53 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 12:31:40 [INFO]: ✅ Libsodium encryption loaded
+2025-12-15 12:31:40 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 12:31:40 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 12:31:42 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 12:31:42 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 12:31:42 [INFO]: ✅ Database connected successfully
+2025-12-15 12:31:42 [INFO]: 📝 Loading commands...
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 12:31:42 [INFO]: 📝 Total commands loaded: 15
+2025-12-15 12:31:42 [INFO]: ✅ Loaded 15 commands
+2025-12-15 12:31:42 [INFO]: 🎯 Loading events...
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 12:31:42 [INFO]:   ✓ Loaded event: ready
+2025-12-15 12:31:42 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 12:31:42 [INFO]: ✅ Events loaded successfully
+2025-12-15 12:31:42 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 12:31:43 [INFO]: ==================================================
+2025-12-15 12:31:43 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 12:31:43 [INFO]: 📊 Serving 2 servers
+2025-12-15 12:31:43 [INFO]: 👥 Watching 19 users
+2025-12-15 12:31:43 [INFO]: 📝 Loaded 15 commands
+2025-12-15 12:31:43 [INFO]: ==================================================
+2025-12-15 12:31:43 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 12:31:43 [INFO]: ✅ Bot is ready and online!
+2025-12-15 12:31:43 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 12:31:43 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 12:31:45 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 12:31:45 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 12:31:45 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 12:31:45 [INFO]: ✅ Express middleware configured
+2025-12-15 12:31:45 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 12:31:45 [INFO]: ✅ Express routes configured
+2025-12-15 12:31:45 [INFO]: ==================================================
+2025-12-15 12:31:45 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 12:31:45 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 12:31:45 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 12:31:45 [INFO]: ==================================================
+2025-12-15 12:33:52 [ERROR]: Player error in WanXD Official: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+Error: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+    at chooseEncryptionMode (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:529:11)
+    at C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:721:21
+2025-12-15 12:33:52 [ERROR]: Player error in WanXD Official: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+Error: No compatible encryption modes. Available include: aead_aes256_gcm_rtpsize, aead_xchacha20_poly1305_rtpsize
+    at chooseEncryptionMode (C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:529:11)
+    at C:\Users\Darmawan\OneDrive\Desktop\Javascript\Discord-BOT\node_modules\discord-voip\dist\index.js:721:21
+2025-12-15 12:33:52 [INFO]: xwan.offc used /play in WanXD Official
+2025-12-15 12:46:44 [INFO]: Disconnected from WanXD Official
+2025-12-15 13:08:53 [INFO]: ✅ Libsodium encryption loaded
+2025-12-15 13:08:53 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 13:08:53 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 13:08:57 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 13:08:57 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 13:08:57 [INFO]: ✅ Database connected successfully
+2025-12-15 13:08:57 [INFO]: 📝 Loading commands...
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: economy/balance.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 13:08:57 [INFO]: 📝 Total commands loaded: 16
+2025-12-15 13:08:57 [INFO]: ✅ Loaded 16 commands
+2025-12-15 13:08:57 [INFO]: 🎯 Loading events...
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 13:08:57 [INFO]:   ✓ Loaded event: ready
+2025-12-15 13:08:57 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 13:08:57 [INFO]: ✅ Events loaded successfully
+2025-12-15 13:08:57 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 13:08:59 [INFO]: ==================================================
+2025-12-15 13:08:59 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 13:08:59 [INFO]: 📊 Serving 2 servers
+2025-12-15 13:08:59 [INFO]: 👥 Watching 19 users
+2025-12-15 13:08:59 [INFO]: 📝 Loaded 16 commands
+2025-12-15 13:08:59 [INFO]: ==================================================
+2025-12-15 13:08:59 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 13:08:59 [INFO]: ✅ Bot is ready and online!
+2025-12-15 13:08:59 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 13:08:59 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 13:09:02 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 13:09:02 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 13:09:02 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 13:09:02 [INFO]: ✅ Express middleware configured
+2025-12-15 13:09:02 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 13:09:02 [INFO]: ✅ Express routes configured
+2025-12-15 13:09:02 [INFO]: ==================================================
+2025-12-15 13:09:02 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 13:09:02 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 13:09:02 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 13:09:02 [INFO]: ==================================================
+2025-12-15 13:14:32 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 13:14:44 [INFO]: ✅ Libsodium encryption loaded
+2025-12-15 13:14:44 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 13:14:44 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 13:14:45 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 13:14:45 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 13:14:45 [INFO]: ✅ Database connected successfully
+2025-12-15 13:14:45 [INFO]: 📝 Loading commands...
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: economy/balance.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: economy/daily.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: economy/leaderboard.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: economy/work.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: leveling/rank.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 13:14:45 [INFO]: 📝 Total commands loaded: 20
+2025-12-15 13:14:45 [INFO]: ✅ Loaded 20 commands
+2025-12-15 13:14:45 [INFO]: 🎯 Loading events...
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 13:14:45 [INFO]:   ✓ Loaded event: ready
+2025-12-15 13:14:45 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 13:14:45 [INFO]: ✅ Events loaded successfully
+2025-12-15 13:14:45 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 13:14:47 [INFO]: ==================================================
+2025-12-15 13:14:47 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 13:14:47 [INFO]: 📊 Serving 2 servers
+2025-12-15 13:14:47 [INFO]: 👥 Watching 19 users
+2025-12-15 13:14:47 [INFO]: 📝 Loaded 20 commands
+2025-12-15 13:14:47 [INFO]: ==================================================
+2025-12-15 13:14:47 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 13:14:47 [INFO]: ✅ Bot is ready and online!
+2025-12-15 13:14:47 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 13:14:47 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 13:14:49 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 13:14:49 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 13:14:49 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 13:14:49 [INFO]: ✅ Express middleware configured
+2025-12-15 13:14:49 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 13:14:49 [INFO]: ✅ Express routes configured
+2025-12-15 13:14:49 [INFO]: ==================================================
+2025-12-15 13:14:49 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 13:14:49 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 13:14:49 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 13:14:49 [INFO]: ==================================================
+2025-12-15 13:16:46 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 13:16:55 [INFO]: 📝 Loading commands for deployment...
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: economy/balance.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: economy/daily.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: economy/leaderboard.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: economy/work.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: leveling/rank.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 13:16:56 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 13:16:57 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 13:16:57 [INFO]: 📦 Total commands to deploy: 20
+2025-12-15 13:16:57 [INFO]: 🚀 Starting deployment...
+2025-12-15 13:16:59 [INFO]: ==================================================
+2025-12-15 13:16:59 [INFO]: ✅ Successfully deployed 20 slash commands globally!
+2025-12-15 13:16:59 [INFO]: ==================================================
+2025-12-15 13:16:59 [INFO]: 
+📋 Deployed Commands:
+2025-12-15 13:16:59 [INFO]:   1. /balance - Check your or someone else's balance
+2025-12-15 13:16:59 [INFO]:   2. /daily - Claim your daily coins reward
+2025-12-15 13:16:59 [INFO]:   3. /leaderboard - View the economy leaderboard
+2025-12-15 13:16:59 [INFO]:   4. /work - Work to earn coins
+2025-12-15 13:16:59 [INFO]:   5. /rank - View your or someone's rank card
+2025-12-15 13:16:59 [INFO]:   6. /ban - Ban a member from the server
+2025-12-15 13:16:59 [INFO]:   7. /kick - Kick a member from the server
+2025-12-15 13:16:59 [INFO]:   8. /timeout - Timeout a member
+2025-12-15 13:16:59 [INFO]:   9. /loop - Set the loop mode
+2025-12-15 13:16:59 [INFO]:   10. /nowplaying - Show information about the current song
+2025-12-15 13:16:59 [INFO]:   11. /pause - Pause or resume the current song
+2025-12-15 13:16:59 [INFO]:   12. /play - Play music from various sources
+2025-12-15 13:16:59 [INFO]:   13. /queue - Show the current music queue
+2025-12-15 13:16:59 [INFO]:   14. /skip - Skip the current song
+2025-12-15 13:16:59 [INFO]:   15. /stop - Stop the music and clear the queue
+2025-12-15 13:16:59 [INFO]:   16. /volume - Adjust the music volume
+2025-12-15 13:16:59 [INFO]:   17. /clear-ai - Clear AI chat conversation history in this channel
+2025-12-15 13:16:59 [INFO]:   18. /help - Show all available commands and features
+2025-12-15 13:16:59 [INFO]:   19. /ping - Check bot latency and response time
+2025-12-15 13:16:59 [INFO]:   20. /presence - Manage bot rich presence (Owner only)
+2025-12-15 13:17:12 [INFO]: ✅ Libsodium encryption loaded
+2025-12-15 13:17:12 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 13:17:12 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 13:17:13 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 13:17:13 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 13:17:13 [INFO]: ✅ Database connected successfully
+2025-12-15 13:17:13 [INFO]: 📝 Loading commands...
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: economy/balance.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: economy/daily.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: economy/leaderboard.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: economy/work.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: leveling/rank.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 13:17:13 [INFO]: 📝 Total commands loaded: 20
+2025-12-15 13:17:13 [INFO]: ✅ Loaded 20 commands
+2025-12-15 13:17:13 [INFO]: 🎯 Loading events...
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 13:17:13 [INFO]:   ✓ Loaded event: ready
+2025-12-15 13:17:13 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 13:17:13 [INFO]: ✅ Events loaded successfully
+2025-12-15 13:17:13 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 13:17:15 [INFO]: ==================================================
+2025-12-15 13:17:15 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 13:17:15 [INFO]: 📊 Serving 2 servers
+2025-12-15 13:17:15 [INFO]: 👥 Watching 19 users
+2025-12-15 13:17:15 [INFO]: 📝 Loaded 20 commands
+2025-12-15 13:17:15 [INFO]: ==================================================
+2025-12-15 13:17:15 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 13:17:15 [INFO]: ✅ Bot is ready and online!
+2025-12-15 13:17:15 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 13:17:15 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 13:17:17 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 13:17:17 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 13:17:17 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 13:17:17 [INFO]: ✅ Express middleware configured
+2025-12-15 13:17:17 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 13:17:17 [INFO]: ✅ Express routes configured
+2025-12-15 13:17:17 [INFO]: ==================================================
+2025-12-15 13:17:17 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 13:17:17 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 13:17:17 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 13:17:17 [INFO]: ==================================================
+2025-12-15 13:17:31 [INFO]: xwan.offc used /daily in WanXD Official
+2025-12-15 13:17:42 [INFO]: xwan.offc used /work in WanXD Official
+2025-12-15 13:18:09 [INFO]: xwan.offc used /leaderboard in WanXD Official
+2025-12-15 13:18:26 [INFO]: xwan.offc used /rank in WanXD Official
+2025-12-15 13:19:29 [INFO]: 🎨 Changed theme to: funRandom
+2025-12-15 13:19:29 [INFO]: xwan.offc used /presence in WanXD Official
+2025-12-15 13:19:50 [INFO]: xwan.offc used /rank in WanXD Official
+2025-12-15 13:20:21 [INFO]: 🛑 Shutting down gracefully...
+2025-12-15 13:20:31 [INFO]: ✅ Libsodium encryption loaded
+2025-12-15 13:20:31 [INFO]: 🚀 Starting Discord Hosei BOT...
+2025-12-15 13:20:31 [INFO]: 📦 Connecting to MongoDB...
+2025-12-15 13:20:32 [INFO]: 📦 MongoDB Connected: ac-pkgwmtd-shard-00-00.dcij2tw.mongodb.net
+2025-12-15 13:20:32 [INFO]: 📊 Database Name: hosei_bot
+2025-12-15 13:20:32 [INFO]: ✅ Database connected successfully
+2025-12-15 13:20:32 [INFO]: 📝 Loading commands...
+2025-12-15 13:20:32 [INFO]:   ✓ Loaded: economy/balance.js
+2025-12-15 13:20:32 [INFO]:   ✓ Loaded: economy/daily.js
+2025-12-15 13:20:32 [INFO]:   ✓ Loaded: economy/leaderboard.js
+2025-12-15 13:20:32 [INFO]:   ✓ Loaded: economy/work.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: leveling/rank.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: moderation/ban.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: moderation/kick.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: moderation/timeout.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/loop.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/nowplaying.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/pause.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/play.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/queue.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/skip.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/stop.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: music/volume.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: utility/clear-ai.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: utility/help.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: utility/ping.js
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded: utility/presence.js
+2025-12-15 13:20:33 [INFO]: 📝 Total commands loaded: 20
+2025-12-15 13:20:33 [INFO]: ✅ Loaded 20 commands
+2025-12-15 13:20:33 [INFO]: 🎯 Loading events...
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded event: interactionCreate
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded event: messageCreate
+2025-12-15 13:20:33 [INFO]:   ✓ Loaded event: ready
+2025-12-15 13:20:33 [INFO]: 🎯 Total events loaded: 3
+2025-12-15 13:20:33 [INFO]: ✅ Events loaded successfully
+2025-12-15 13:20:33 [INFO]: 🔐 Logging in to Discord...
+2025-12-15 13:20:34 [INFO]: ==================================================
+2025-12-15 13:20:34 [INFO]: 🤖 Bot logged in as: HOSEI BOT#8002
+2025-12-15 13:20:34 [INFO]: 📊 Serving 2 servers
+2025-12-15 13:20:34 [INFO]: 👥 Watching 19 users
+2025-12-15 13:20:34 [INFO]: 📝 Loaded 20 commands
+2025-12-15 13:20:34 [INFO]: ==================================================
+2025-12-15 13:20:34 [INFO]: 🎨 Rich Presence started with theme: default
+2025-12-15 13:20:34 [INFO]: ✅ Bot is ready and online!
+2025-12-15 13:20:34 [INFO]: 🎨 Rich Presence system activated!
+2025-12-15 13:20:34 [INFO]: 🎵 Setting up Music Player...
+2025-12-15 13:20:36 [INFO]: ✅ Discord Player initialized successfully
+2025-12-15 13:20:36 [INFO]:    Loaded extractors: YouTube, Spotify, SoundCloud, Apple Music
+2025-12-15 13:20:36 [INFO]: 🌐 Starting Web Dashboard...
+2025-12-15 13:20:36 [INFO]: ✅ Express middleware configured
+2025-12-15 13:20:36 [INFO]: ✅ Discord OAuth2 configured
+2025-12-15 13:20:36 [INFO]: ✅ Express routes configured
+2025-12-15 13:20:36 [INFO]: ==================================================
+2025-12-15 13:20:36 [INFO]: 🌐 Web Dashboard started on port 3000
+2025-12-15 13:20:36 [INFO]: 📍 URL: http://localhost:3000
+2025-12-15 13:20:36 [INFO]: 🔐 OAuth Callback: http://localhost:3000/callback
+2025-12-15 13:20:36 [INFO]: ==================================================
+2025-12-15 13:20:48 [INFO]: xwan.offc used /daily in WanXD Official
+2025-12-15 13:20:59 [INFO]: xwan.offc used /rank in WanXD Official
+2025-12-15 13:22:38 [INFO]: xwan.offc used /help in WanXD Official
+2025-12-15 13:22:50 [INFO]: Select menu: help-category by xwan.offc
+2025-12-15 13:23:01 [INFO]: Select menu: help-category by xwan.offc
+2025-12-15 13:23:06 [INFO]: Select menu: help-category by xwan.offc
+2025-12-15 13:27:54 [INFO]: 🛑 Shutting down gracefully...

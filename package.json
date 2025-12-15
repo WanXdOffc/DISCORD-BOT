@@ -9,6 +9,7 @@
     "dev": "node --watch index.js",
     "setup": "node setup.js",
     "deploy": "node deploy-commands.js",
+    "verify": "node verify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,17 +20,19 @@
     "ai",
     "moderation"
   ],
-  "author": "Darmawan",
+  "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/voice": "^0.17.0",
+    "@discordjs/voice": "^0.18.0",
     "@napi-rs/canvas": "^0.1.58",
     "discord-player": "^6.7.0",
+    "discord-player-youtubei": "^1.3.1",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-session": "^1.18.1",
+    "libsodium-wrappers": "^0.7.15",
     "mediaplex": "^0.0.9",
     "moment": "^2.30.1",
     "mongoose": "^8.8.3",
