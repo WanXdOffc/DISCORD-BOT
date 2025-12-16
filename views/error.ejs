@@ -4,7 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Error - Hosei BOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen text-white flex items-center justify-center p-4">
+  <div class="glass-effect rounded-2xl p-12 max-w-2xl w-full text-center">
+    <div class="text-8xl mb-6">😢</div>
+    <h1 class="text-4xl font-bold mb-4">Oops! Something went wrong</h1>
+    <p class="text-xl mb-8 opacity-90"><%= message || 'An unexpected error occurred' %></p>
+    <a href="/" class="inline-block px-8 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-all">
+      🏠 Back to Home
+    </a>
+  </div>
+</body>
+</html>
     * {
       margin: 0;
       padding: 0;

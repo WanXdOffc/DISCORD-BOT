@@ -4,7 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discord Hosei BOT - Advanced Discord Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .float-animation { animation: float 3s ease-in-out infinite; }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+  <!-- Navbar -->
+  <nav class="glass-effect sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl">🤖</span>
+          <span class="text-xl font-bold">Hosei BOT</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <% if (user) { %>
+            <div class="flex items-center space-x-3">
+              <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
+                   alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white">
+              <span class="font-medium hidden md:block"><%= user.username %></span>
+            </div>
+            <a href="/dashboard" class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-all">Dashboard</a>
+            <a href="/logout" class="px-6 py-2 bg-red-500 hover:bg-red-600 rounded-lg font-semibold transition-all">Logout</a>
+          <% } else { %>
+            <a href="/login" class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-all">Login with Discord</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+    <div class="float-animation inline-block text-8xl mb-6">🚀</div>
+    <h1 class="text-6xl font-extrabold mb-6">Discord Hosei BOT</h1>
+    <p class="text-2xl mb-8 opacity-90">The Ultimate All-in-One Discord Bot</p>
+    <p class="text-lg mb-12 opacity-75 max-w-2xl mx-auto">Music, AI Chat, Moderation, Economy, Leveling, Games, and More!</p>
+    <% if (!user) { %>
+      <a href="/login" class="inline-block px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-lg text-xl font-bold transition-all transform hover:scale-105">
+        Get Started Now →
+      </a>
+    <% } %>
+  </div>
+
+  <!-- Stats -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="glass-effect rounded-2xl p-8 text-center">
+        <div class="text-5xl font-bold mb-2"><%= client.guilds.cache.size %></div>
+        <div class="text-lg opacity-80">Servers</div>
+      </div>
+      <div class="glass-effect rounded-2xl p-8 text-center">
+        <div class="text-5xl font-bold mb-2"><%= client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0).toLocaleString() %></div>
+        <div class="text-lg opacity-80">Users</div>
+      </div>
+      <div class="glass-effect rounded-2xl p-8 text-center">
+        <div class="text-5xl font-bold mb-2"><%= client.commands.size %></div>
+        <div class="text-lg opacity-80">Commands</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <% const features = [
+        { icon: '🎵', title: 'Music System', desc: 'High-quality audio from Spotify, YouTube, SoundCloud' },
+        { icon: '🤖', title: 'AI Chat', desc: 'Powered by OpenAI for intelligent conversations' },
+        { icon: '🛡️', title: 'Moderation', desc: 'Auto-mod, anti-spam, verification system' },
+        { icon: '💰', title: 'Economy', desc: 'Currency system with daily rewards & quests' },
+        { icon: '📊', title: 'Leveling', desc: 'XP tracking with level-up rewards' },
+        { icon: '🎮', title: 'Games', desc: 'RPG, trivia, and interactive games' },
+        { icon: '🎨', title: 'Welcome Cards', desc: 'Beautiful generated images' },
+        { icon: '⚙️', title: 'Web Dashboard', desc: 'Easy settings management' }
+      ]; %>
+      <% features.forEach(feature => { %>
+        <div class="glass-effect rounded-xl p-6 hover:scale-105 transition-transform">
+          <div class="text-5xl mb-4"><%= feature.icon %></div>
+          <h3 class="text-xl font-bold mb-2"><%= feature.title %></h3>
+          <p class="opacity-75"><%= feature.desc %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center mt-20">
+    <div class="glass-effect rounded-xl p-8">
+      <p class="text-lg mb-2">Made with ❤️ by Hosei BOT Team</p>
+      <p class="opacity-60">© 2025 Discord Hosei BOT. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
     * {
       margin: 0;
       padding: 0;

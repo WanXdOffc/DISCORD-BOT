@@ -4,377 +4,530 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= guild.name %> - Settings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    .gradient-bg {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: white;
     }
 
-    .navbar {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo { font-size: 1.5rem; font-weight: bold; }
-    .user-info { display: flex; align-items: center; gap: 1rem; }
-    .user-avatar { width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; }
-
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #5865F2;
-      border-color: #5865F2;
-    }
-
-    .btn-primary:hover {
-      background: #4752C4;
-      box-shadow: 0 6px 12px rgba(88, 101, 242, 0.4);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-
-    .guild-header {
+    .glass-effect {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .guild-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      overflow: hidden;
+    /* Toggle Switch */
+    .toggle-checkbox:checked {
+      right: 0;
+      border-color: #10b981;
     }
-
-    .guild-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .guild-info h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .guild-stats {
-      display: flex;
-      gap: 2rem;
-      opacity: 0.9;
-    }
-
-    .settings-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .setting-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .setting-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .setting-card p {
-      opacity: 0.8;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .setting-control {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      margin-bottom: 0.75rem;
-    }
-
-    .setting-control:last-child {
-      margin-bottom: 0;
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 50px;
-      height: 26px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 13px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .toggle-switch.active {
-      background: #57F287;
-    }
-
-    .toggle-switch::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: white;
-      top: 3px;
-      left: 3px;
-      transition: 0.3s;
-    }
-
-    .toggle-switch.active::after {
-      left: 27px;
-    }
-
-    .input-field {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.2);
-      color: white;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .input-field:focus {
-      outline: none;
-      border-color: #5865F2;
-    }
-
-    .save-button {
-      width: 100%;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 1.1rem;
-    }
-
-    .notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 1rem 1.5rem;
-      background: rgba(87, 242, 135, 0.9);
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-      display: none;
-      animation: slideIn 0.3s;
-    }
-
-    .notification.error {
-      background: rgba(237, 66, 69, 0.9);
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #10b981;
     }
 
     @keyframes slideIn {
       from {
-        transform: translateX(400px);
         opacity: 0;
+        transform: translateX(300px);
       }
       to {
-        transform: translateX(0);
         opacity: 1;
+        transform: translateX(0);
       }
+    }
+
+    .notification {
+      animation: slideIn 0.3s ease-out;
     }
   </style>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo">🤖 Discord Hosei BOT</div>
-    <div class="user-info">
-      <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
-           alt="Avatar" class="user-avatar">
-      <span><%= user.username %></span>
-      <a href="/dashboard" class="btn">← Back to Dashboard</a>
-      <a href="/logout" class="btn">Logout</a>
+<body class="gradient-bg min-h-screen text-white">
+  <!-- Navbar -->
+  <nav class="glass-effect sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl">🤖</span>
+          <span class="text-xl font-bold">Guild Settings</span>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-3">
+            <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
+                 alt="Avatar" 
+                 class="w-10 h-10 rounded-full border-2 border-white">
+            <span class="font-medium hidden md:block"><%= user.username %></span>
+          </div>
+          <a href="/dashboard" 
+             class="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-all">
+            ← Back
+          </a>
+          <a href="/logout" 
+             class="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-all">
+            Logout
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <div class="container">
-    <div class="guild-header">
-      <div class="guild-icon">
-        <% if (guild.icon) { %>
-          <img src="<%= guild.iconURL() %>" alt="<%= guild.name %>">
-        <% } else { %>
-          🏠
-        <% } %>
-      </div>
-      <div class="guild-info">
-        <h1><%= guild.name %></h1>
-        <div class="guild-stats">
-          <span>👥 <%= guild.memberCount %> Members</span>
-          <span>📝 <%= guild.channels.cache.size %> Channels</span>
-          <span>🎭 <%= guild.roles.cache.size %> Roles</span>
+  <!-- Guild Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="glass-effect rounded-2xl p-6 mb-8">
+      <div class="flex items-center space-x-6">
+        <div class="w-20 h-20 rounded-full overflow-hidden bg-white/20 flex items-center justify-center text-4xl flex-shrink-0">
+          <% if (guild.icon) { %>
+            <img src="<%= guild.iconURL() %>" alt="<%= guild.name %>" class="w-full h-full object-cover">
+          <% } else { %>
+            🏠
+          <% } %>
+        </div>
+        <div class="flex-1">
+          <h1 class="text-3xl font-bold mb-2"><%= guild.name %></h1>
+          <div class="flex flex-wrap gap-4 text-sm opacity-80">
+            <span>👥 <%= guild.memberCount %> Members</span>
+            <span>📝 <%= guild.channels.cache.size %> Channels</span>
+            <span>🎭 <%= guild.roles.cache.size %> Roles</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <form id="settingsForm">
-      <div class="settings-grid">
-        <!-- Basic Settings -->
-        <div class="setting-card">
-          <h3>⚙️ Basic Settings</h3>
-          <p>Configure bot prefix and general settings</p>
-          
-          <div class="setting-control">
-            <label>Command Prefix</label>
-            <input type="text" name="prefix" value="<%= settings.prefix %>" 
-                   class="input-field" style="width: 100px;" maxlength="5">
+    <!-- Settings Form -->
+    <form id="settingsForm" class="space-y-6">
+      <!-- Basic Settings -->
+      <div class="glass-effect rounded-xl p-6">
+        <div class="flex items-center space-x-3 mb-6">
+          <span class="text-3xl">⚙️</span>
+          <div>
+            <h2 class="text-2xl font-bold">Basic Settings</h2>
+            <p class="text-sm opacity-70">Configure bot prefix and general settings</p>
           </div>
         </div>
 
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Command Prefix</label>
+            <input type="text" 
+                   name="prefix" 
+                   value="<%= settings.prefix || '!' %>" 
+                   maxlength="5"
+                   class="w-full md:w-64 px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Music System -->
-        <div class="setting-card">
-          <h3>🎵 Music System</h3>
-          <p>Enable high-quality music playback</p>
-          
-          <div class="setting-control">
-            <label>Enable Music</label>
-            <div class="toggle-switch <%= settings.musicEnabled ? 'active' : '' %>" 
-                 data-setting="musicEnabled"></div>
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">🎵</span>
+            <div>
+              <h2 class="text-xl font-bold">Music System</h2>
+              <p class="text-sm opacity-70">High-quality audio playback</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+            <span class="font-medium">Enable Music</span>
+            <div class="relative inline-block w-12 mr-2 align-middle select-none">
+              <input type="checkbox" 
+                     name="features.music" 
+                     id="toggle-music"
+                     <%= settings.features?.music ? 'checked' : '' %>
+                     class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                     style="right: 1.5rem;" />
+              <label for="toggle-music" 
+                     class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+            </div>
           </div>
         </div>
 
         <!-- Leveling System -->
-        <div class="setting-card">
-          <h3>📊 Leveling System</h3>
-          <p>Track member activity with XP and levels</p>
-          
-          <div class="setting-control">
-            <label>Enable Leveling</label>
-            <div class="toggle-switch <%= settings.levelingEnabled ? 'active' : '' %>" 
-                 data-setting="levelingEnabled"></div>
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">📊</span>
+            <div>
+              <h2 class="text-xl font-bold">Leveling System</h2>
+              <p class="text-sm opacity-70">Track member activity</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable Leveling</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="features.leveling" 
+                       id="toggle-leveling"
+                       <%= settings.features?.leveling ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-leveling" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Level Up Announcement Channel</label>
+              <select name="leveling.channelId" 
+                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+                <option value="">None</option>
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" <%= settings.leveling?.channelId === channel.id ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
           </div>
         </div>
 
         <!-- Welcome System -->
-        <div class="setting-card">
-          <h3>👋 Welcome System</h3>
-          <p>Greet new members with custom messages</p>
-          
-          <div class="setting-control">
-            <label>Enable Welcome</label>
-            <div class="toggle-switch <%= settings.welcomeEnabled ? 'active' : '' %>" 
-                 data-setting="welcomeEnabled"></div>
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">👋</span>
+            <div>
+              <h2 class="text-xl font-bold">Welcome System</h2>
+              <p class="text-sm opacity-70">Greet new members</p>
+            </div>
           </div>
-          
-          <label style="margin-top: 1rem; display: block; opacity: 0.9;">Welcome Channel ID</label>
-          <input type="text" name="welcomeChannel" 
-                 value="<%= settings.welcomeChannel || '' %>" 
-                 placeholder="Enter channel ID" class="input-field">
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable Welcome</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="welcome.enabled" 
+                       id="toggle-welcome"
+                       <%= settings.welcome?.enabled ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-welcome" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Welcome Channel</label>
+              <select name="welcome.channelId" 
+                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+                <option value="">None</option>
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" <%= settings.welcome?.channelId === channel.id ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Welcome Message</label>
+              <input type="text" 
+                     name="welcome.message" 
+                     value="<%= settings.welcome?.message || 'Welcome {user} to {server}!' %>"
+                     placeholder="{user}, {server}, {memberCount}"
+                     class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+              <p class="text-xs opacity-60 mt-2">Variables: {user}, {server}, {memberCount}</p>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Welcome Card Image</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="welcome.card" 
+                       id="toggle-card"
+                       <%= settings.welcome?.card ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-card" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Verification System -->
-        <div class="setting-card">
-          <h3>🛡️ Verification System</h3>
-          <p>Protect your server from raids and bots</p>
-          
-          <div class="setting-control">
-            <label>Enable Verification</label>
-            <div class="toggle-switch <%= settings.verificationEnabled ? 'active' : '' %>" 
-                 data-setting="verificationEnabled"></div>
+        <!-- Goodbye System -->
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">👋</span>
+            <div>
+              <h2 class="text-xl font-bold">Goodbye System</h2>
+              <p class="text-sm opacity-70">Farewell messages</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable Goodbye</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="goodbye.enabled" 
+                       id="toggle-goodbye"
+                       <%= settings.goodbye?.enabled ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-goodbye" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Goodbye Channel</label>
+              <select name="goodbye.channelId" 
+                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+                <option value="">None</option>
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" <%= settings.goodbye?.channelId === channel.id ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
           </div>
         </div>
 
         <!-- AI Chat -->
-        <div class="setting-card">
-          <h3>🤖 AI Chat</h3>
-          <p>AI-powered conversations in channels</p>
-          
-          <div class="setting-control">
-            <label>Enable AI Chat</label>
-            <div class="toggle-switch <%= settings.aiChatEnabled ? 'active' : '' %>" 
-                 data-setting="aiChatEnabled"></div>
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">🤖</span>
+            <div>
+              <h2 class="text-xl font-bold">AI Chat</h2>
+              <p class="text-sm opacity-70">AI-powered conversations</p>
+            </div>
           </div>
-          
-          <label style="margin-top: 1rem; display: block; opacity: 0.9;">AI Channels (comma-separated IDs)</label>
-          <input type="text" name="aiChatChannels" 
-                 value="<%= (settings.aiChatChannels || []).join(', ') %>" 
-                 placeholder="123456,789012" class="input-field">
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable AI Chat</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="aiChat.enabled" 
+                       id="toggle-ai"
+                       <%= settings.aiChat?.enabled ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-ai" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">AI Chat Channels (Ctrl+Click for multiple)</label>
+              <select name="aiChat.channels" 
+                      multiple 
+                      size="5"
+                      class="w-full px-4 py-2 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" 
+                          class="py-2 px-2 hover:bg-white/10"
+                          <%= settings.aiChat?.channels?.includes(channel.id) ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moderation & Security -->
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">🛡️</span>
+            <div>
+              <h2 class="text-xl font-bold">Security</h2>
+              <p class="text-sm opacity-70">Auto-moderation features</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable Auto-Mod</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="moderation.autoMod.enabled" 
+                       id="toggle-automod"
+                       <%= settings.moderation?.autoMod?.enabled ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-automod" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Anti-Spam</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="moderation.autoMod.antiSpam" 
+                       id="toggle-spam"
+                       <%= settings.moderation?.autoMod?.antiSpam ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-spam" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Anti-Links</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="moderation.autoMod.antiLinks" 
+                       id="toggle-links"
+                       <%= settings.moderation?.autoMod?.antiLinks ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-links" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Anti-Invites</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="moderation.autoMod.antiInvites" 
+                       id="toggle-invites"
+                       <%= settings.moderation?.autoMod?.antiInvites ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-invites" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Moderation Log Channel</label>
+              <select name="moderation.logChannelId" 
+                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+                <option value="">None</option>
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" <%= settings.moderation?.logChannelId === channel.id ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economy -->
+        <div class="glass-effect rounded-xl p-6">
+          <div class="flex items-center space-x-3 mb-6">
+            <span class="text-3xl">💰</span>
+            <div>
+              <h2 class="text-xl font-bold">Economy</h2>
+              <p class="text-sm opacity-70">Currency system</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+              <span class="font-medium">Enable Economy</span>
+              <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                <input type="checkbox" 
+                       name="features.economy" 
+                       id="toggle-economy"
+                       <%= settings.features?.economy ? 'checked' : '' %>
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
+                       style="right: 1.5rem;" />
+                <label for="toggle-economy" 
+                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Daily Reward Amount</label>
+              <input type="number" 
+                     name="economy.daily.amount" 
+                     value="<%= settings.economy?.daily?.amount || 100 %>"
+                     min="1" 
+                     max="10000"
+                     class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+            </div>
+          </div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary save-button">
-        💾 Save Settings
-      </button>
+      <!-- Save Button -->
+      <div class="glass-effect rounded-xl p-6">
+        <button type="submit" 
+                class="w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+          💾 Save All Settings
+        </button>
+      </div>
     </form>
   </div>
 
-  <div id="notification" class="notification"></div>
+  <!-- Notification Toast -->
+  <div id="notification" 
+       class="fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl hidden z-50"
+       style="min-width: 300px;">
+    <div class="flex items-center space-x-3">
+      <span id="notification-icon" class="text-2xl"></span>
+      <span id="notification-text" class="font-medium"></span>
+    </div>
+  </div>
 
   <script>
-    // Toggle switches
-    document.querySelectorAll('.toggle-switch').forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-      });
-    });
-
-    // Save settings
+    // Form submission
     document.getElementById('settingsForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const formData = new FormData(e.target);
+      
+      // Helper to get checkbox values
+      const getCheckbox = (name) => {
+        const input = document.querySelector(`input[name="${name}"]`);
+        return input ? input.checked : false;
+      };
+
+      // Build settings object
       const settings = {
         prefix: formData.get('prefix'),
-        musicEnabled: document.querySelector('[data-setting="musicEnabled"]').classList.contains('active'),
-        levelingEnabled: document.querySelector('[data-setting="levelingEnabled"]').classList.contains('active'),
-        welcomeEnabled: document.querySelector('[data-setting="welcomeEnabled"]').classList.contains('active'),
-        welcomeChannel: formData.get('welcomeChannel') || null,
-        verificationEnabled: document.querySelector('[data-setting="verificationEnabled"]').classList.contains('active'),
-        aiChatEnabled: document.querySelector('[data-setting="aiChatEnabled"]').classList.contains('active'),
-        aiChatChannels: formData.get('aiChatChannels').split(',').map(id => id.trim()).filter(Boolean),
+        features: {
+          music: getCheckbox('features.music'),
+          leveling: getCheckbox('features.leveling'),
+          economy: getCheckbox('features.economy'),
+        },
+        welcome: {
+          enabled: getCheckbox('welcome.enabled'),
+          channelId: formData.get('welcome.channelId') || null,
+          message: formData.get('welcome.message'),
+          card: getCheckbox('welcome.card'),
+        },
+        goodbye: {
+          enabled: getCheckbox('goodbye.enabled'),
+          channelId: formData.get('goodbye.channelId') || null,
+        },
+        aiChat: {
+          enabled: getCheckbox('aiChat.enabled'),
+          channels: Array.from(formData.getAll('aiChat.channels')),
+        },
+        leveling: {
+          channelId: formData.get('leveling.channelId') || null,
+        },
+        moderation: {
+          autoMod: {
+            enabled: getCheckbox('moderation.autoMod.enabled'),
+            antiSpam: getCheckbox('moderation.autoMod.antiSpam'),
+            antiLinks: getCheckbox('moderation.autoMod.antiLinks'),
+            antiInvites: getCheckbox('moderation.autoMod.antiInvites'),
+          },
+          logChannelId: formData.get('moderation.logChannelId') || null,
+        },
+        economy: {
+          daily: {
+            amount: parseInt(formData.get('economy.daily.amount')) || 100,
+          }
+        }
       };
 
       try {
@@ -387,19 +540,26 @@
         const result = await response.json();
         
         if (response.ok) {
-          showNotification('✅ Settings saved successfully!', false);
+          showNotification('✅', 'Settings saved successfully!', false);
         } else {
-          showNotification('❌ Failed to save settings', true);
+          showNotification('❌', 'Failed to save settings', true);
         }
       } catch (error) {
-        showNotification('❌ Network error', true);
+        showNotification('❌', 'Network error', true);
       }
     });
 
-    function showNotification(message, isError) {
+    function showNotification(icon, text, isError) {
       const notification = document.getElementById('notification');
-      notification.textContent = message;
-      notification.className = 'notification' + (isError ? ' error' : '');
+      const notificationIcon = document.getElementById('notification-icon');
+      const notificationText = document.getElementById('notification-text');
+      
+      notificationIcon.textContent = icon;
+      notificationText.textContent = text;
+      
+      notification.className = `notification fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl z-50 ${
+        isError ? 'bg-red-500' : 'bg-green-500'
+      }`;
       notification.style.display = 'block';
       
       setTimeout(() => {
