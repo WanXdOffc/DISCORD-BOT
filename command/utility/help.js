@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } from 'discord.js';
+import { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ComponentType } from 'discord.js';
 
 export default {
   data: new SlashCommandBuilder()
@@ -50,7 +50,6 @@ export default {
         });
       }
 
-      // Show options if available
       if (command.data.options && command.data.options.length > 0) {
         const options = command.data.options.map(opt => {
           const required = opt.required ? '`[Required]`' : '`[Optional]`';
@@ -67,17 +66,15 @@ export default {
       return interaction.reply({ embeds: [embed] });
     }
 
-    // General help - categorize commands
+    // Categorize commands
     const categories = {
       music: { emoji: '🎵', name: 'Music', commands: [] },
       moderation: { emoji: '🛡️', name: 'Moderation', commands: [] },
       economy: { emoji: '💰', name: 'Economy', commands: [] },
       leveling: { emoji: '📊', name: 'Leveling', commands: [] },
-      games: { emoji: '🎮', name: 'Games', commands: [] },
       utility: { emoji: '🔧', name: 'Utility', commands: [] },
     };
 
-    // Organize commands by category
     client.commands.forEach(command => {
       const category = command.category || 'utility';
       if (categories[category]) {
@@ -85,84 +82,123 @@ export default {
       }
     });
 
-    // Create main help embed
+    // Main help embed
     const helpEmbed = new EmbedBuilder()
       .setColor(0x5865F2)
       .setAuthor({
-        name: 'Hosei BOT Help Menu',
+        name: 'Hosei BOT Command Help',
         iconURL: client.user.displayAvatarURL()
       })
       .setDescription(
-        `👋 Hello ${interaction.user}! I'm **Hosei BOT**, your all-in-one Discord assistant!\n\n` +
+        `👋 Hello ${interaction.user}! I'm **Hosei BOT**!\n\n` +
         `**📚 Total Commands:** ${client.commands.size}\n` +
-        `**🌐 Dashboard:** [Click here](${client.config.web.domain})\n\n` +
-        `Use \`/help <command>\` for detailed information about a command.`
+        `**🎯 Select a category below to view commands**`
       )
-      .setThumbnail(client.user.displayAvatarURL());
+      .setThumbnail(client.user.displayAvatarURL())
+      .setFooter({
+        text: 'Use /help <command> for detailed info',
+        iconURL: interaction.user.displayAvatarURL()
+      })
+      .setTimestamp();
 
-    // Add categories with commands
+    // Add quick overview
     Object.entries(categories).forEach(([key, cat]) => {
       if (cat.commands.length > 0) {
         helpEmbed.addFields({
-          name: `${cat.emoji} ${cat.name}`,
-          value: cat.commands.map(cmd => `\`/${cmd}\``).join(', '),
+          name: `${cat.emoji} ${cat.name} (${cat.commands.length})`,
+          value: cat.commands.slice(0, 5).map(cmd => `\`/${cmd}\``).join(', ') + (cat.commands.length > 5 ? '...' : ''),
           inline: false
         });
       }
     });
 
-    helpEmbed.addFields(
-      {
-        name: '🔗 Links',
-        value: '[Dashboard](${client.config.web.domain}) • [Invite Bot](#) • [Support Server](#)',
-        inline: false
-      },
-      {
-        name: '💡 Tips',
-        value: '• Use `/ping` to check bot status\n' +
-               '• Use `/presence` to change bot status (Owner only)\n' +
-               '• Mention me in an AI channel for conversation!',
-        inline: false
-      }
-    );
-
-    helpEmbed.setFooter({
-      text: `Requested by ${interaction.user.username} • Page 1/1`,
-      iconURL: interaction.user.displayAvatarURL()
-    });
-    
-    helpEmbed.setTimestamp();
-
-    // Create select menu for categories
+    // Create select menu
     const selectMenu = new StringSelectMenuBuilder()
-      .setCustomId('help-category')
-      .setPlaceholder('🔍 Select a category for more info')
-      .addOptions(
+      .setCustomId('help-category-select')
+      .setPlaceholder('📂 Select a category to view commands')
+      .addOptions([
         {
           label: '🎵 Music Commands',
-          description: 'Play, queue, skip, and control music',
+          description: `${categories.music.commands.length} commands - Music playback and control`,
           value: 'music',
           emoji: '🎵'
         },
         {
           label: '🛡️ Moderation Commands',
-          description: 'Kick, ban, timeout members',
+          description: `${categories.moderation.commands.length} commands - Server moderation tools`,
           value: 'moderation',
           emoji: '🛡️'
         },
         {
+          label: '💰 Economy Commands',
+          description: `${categories.economy.commands.length} commands - Currency and trading`,
+          value: 'economy',
+          emoji: '💰'
+        },
+        {
+          label: '📊 Leveling Commands',
+          description: `${categories.leveling.commands.length} commands - XP and ranking`,
+          value: 'leveling',
+          emoji: '📊'
+        },
+        {
           label: '🔧 Utility Commands',
-          description: 'Helpful utility commands',
+          description: `${categories.utility.commands.length} commands - Useful tools`,
           value: 'utility',
           emoji: '🔧'
         }
-      );
+      ]);
 
     const row = new ActionRowBuilder().addComponents(selectMenu);
 
-    await interaction.reply({
+    const response = await interaction.reply({
       embeds: [helpEmbed],
       components: [row]
+    });
+
+    // Handle select menu interactions
+    const collector = response.createMessageComponentCollector({
+      componentType: ComponentType.StringSelect,
+      time: 300000 // 5 minutes
+    });
+
+    collector.on('collect', async i => {
+      if (i.user.id !== interaction.user.id) {
+        return i.reply({ content: 'This menu is not for you!', ephemeral: true });
+      }
+
+      const category = i.values[0];
+      const categoryData = categories[category];
+
+      const categoryEmbed = new EmbedBuilder()
+        .setColor(0x5865F2)
+        .setTitle(`${categoryData.emoji} ${categoryData.name} Commands`)
+        .setDescription(`Here are all ${categoryData.commands.length} commands in the ${categoryData.name} category:`)
+        .setThumbnail(client.user.displayAvatarURL());
+
+      // Group commands in fields
+      const commandsList = categoryData.commands.map(cmdName => {
+        const cmd = client.commands.get(cmdName);
+        return `**/${cmdName}**\n${cmd.data.description}`;
+      }).join('\n\n');
+
+      categoryEmbed.addFields({
+        name: 'Commands',
+        value: commandsList || 'No commands in this category',
+        inline: false
+      });
+
+      categoryEmbed.setFooter({
+        text: `Use /help <command> for more details • ${categoryData.commands.length} commands`,
+        iconURL: interaction.user.displayAvatarURL()
+      });
+
+      await i.update({ embeds: [categoryEmbed], components: [row] });
+    });
+
+    collector.on('end', () => {
+      // Remove select menu after timeout
+      interaction.editReply({ components: [] }).catch(() => {});
     });
   },
 };

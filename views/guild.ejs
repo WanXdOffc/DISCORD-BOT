@@ -5,408 +5,247 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= guild.name %> - Settings</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* Toggle Switch */
-    .toggle-checkbox:checked {
-      right: 0;
-      border-color: #10b981;
-    }
-    .toggle-checkbox:checked + .toggle-label {
-      background-color: #10b981;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateX(300px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .notification {
-      animation: slideIn 0.3s ease-out;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="gradient-bg min-h-screen text-white">
+<body class="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 min-h-screen text-white">
   <!-- Navbar -->
-  <nav class="glass-effect sticky top-0 z-50">
+  <nav class="bg-black/20 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center space-x-3">
-          <span class="text-2xl">🤖</span>
+          <i class="fas fa-robot text-2xl"></i>
           <span class="text-xl font-bold">Guild Settings</span>
         </div>
-        
         <div class="flex items-center space-x-4">
-          <div class="flex items-center space-x-3">
-            <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
-                 alt="Avatar" 
-                 class="w-10 h-10 rounded-full border-2 border-white">
-            <span class="font-medium hidden md:block"><%= user.username %></span>
-          </div>
-          <a href="/dashboard" 
-             class="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-all">
-            ← Back
+          <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" 
+               alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white">
+          <a href="/dashboard" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all">
+            <i class="fas fa-arrow-left mr-2"></i>Back
           </a>
-          <a href="/logout" 
-             class="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-all">
-            Logout
-          </a>
+          <a href="/logout" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition-all">Logout</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Guild Header -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="glass-effect rounded-2xl p-6 mb-8">
+    <!-- Guild Header -->
+    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-8 border border-white/20">
       <div class="flex items-center space-x-6">
-        <div class="w-20 h-20 rounded-full overflow-hidden bg-white/20 flex items-center justify-center text-4xl flex-shrink-0">
+        <div class="w-20 h-20 rounded-full overflow-hidden bg-white/20 flex items-center justify-center text-4xl">
           <% if (guild.icon) { %>
             <img src="<%= guild.iconURL() %>" alt="<%= guild.name %>" class="w-full h-full object-cover">
-          <% } else { %>
-            🏠
-          <% } %>
+          <% } else { %><i class="fas fa-server"></i><% } %>
         </div>
-        <div class="flex-1">
+        <div>
           <h1 class="text-3xl font-bold mb-2"><%= guild.name %></h1>
-          <div class="flex flex-wrap gap-4 text-sm opacity-80">
-            <span>👥 <%= guild.memberCount %> Members</span>
-            <span>📝 <%= guild.channels.cache.size %> Channels</span>
-            <span>🎭 <%= guild.roles.cache.size %> Roles</span>
+          <div class="flex gap-4 text-sm opacity-80">
+            <span><i class="fas fa-users mr-1"></i><%= guild.memberCount %></span>
+            <span><i class="fas fa-hashtag mr-1"></i><%= guild.channels.cache.size %></span>
+            <span><i class="fas fa-shield-alt mr-1"></i><%= guild.roles.cache.size %></span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Settings Form -->
-    <form id="settingsForm" class="space-y-6">
-      <!-- Basic Settings -->
-      <div class="glass-effect rounded-xl p-6">
-        <div class="flex items-center space-x-3 mb-6">
-          <span class="text-3xl">⚙️</span>
-          <div>
-            <h2 class="text-2xl font-bold">Basic Settings</h2>
-            <p class="text-sm opacity-70">Configure bot prefix and general settings</p>
-          </div>
-        </div>
+    <!-- Category Tabs -->
+    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-8 border border-white/20">
+      <div class="flex flex-wrap gap-3">
+        <button onclick="showCategory('basic')" data-category="basic" class="category-btn px-6 py-3 bg-blue-500 rounded-lg font-semibold transition-all hover:bg-blue-600">
+          <i class="fas fa-cog mr-2"></i>Basic
+        </button>
+        <button onclick="showCategory('features')" data-category="features" class="category-btn px-6 py-3 bg-white/10 rounded-lg font-semibold transition-all hover:bg-white/20">
+          <i class="fas fa-puzzle-piece mr-2"></i>Features
+        </button>
+        <button onclick="showCategory('welcome')" data-category="welcome" class="category-btn px-6 py-3 bg-white/10 rounded-lg font-semibold transition-all hover:bg-white/20">
+          <i class="fas fa-door-open mr-2"></i>Welcome
+        </button>
+        <button onclick="showCategory('moderation')" data-category="moderation" class="category-btn px-6 py-3 bg-white/10 rounded-lg font-semibold transition-all hover:bg-white/20">
+          <i class="fas fa-shield-alt mr-2"></i>Moderation
+        </button>
+        <button onclick="showCategory('economy')" data-category="economy" class="category-btn px-6 py-3 bg-white/10 rounded-lg font-semibold transition-all hover:bg-white/20">
+          <i class="fas fa-coins mr-2"></i>Economy
+        </button>
+        <button onclick="showCategory('ai')" data-category="ai" class="category-btn px-6 py-3 bg-white/10 rounded-lg font-semibold transition-all hover:bg-white/20">
+          <i class="fas fa-robot mr-2"></i>AI Chat
+        </button>
+      </div>
+    </div>
 
-        <div class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium mb-2">Command Prefix</label>
-            <input type="text" 
-                   name="prefix" 
-                   value="<%= settings.prefix || '!' %>" 
-                   maxlength="5"
-                   class="w-full md:w-64 px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+    <!-- Settings Form -->
+    <form id="settingsForm">
+      <!-- Basic Settings -->
+      <div id="category-basic" class="category-content">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+          <h2 class="text-2xl font-bold mb-6"><i class="fas fa-cog mr-2"></i>Basic Settings</h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Command Prefix</label>
+              <input type="text" name="prefix" value="<%= settings.prefix || '!' %>" maxlength="5"
+                     class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:border-blue-500 focus:outline-none">
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Music System -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">🎵</span>
-            <div>
-              <h2 class="text-xl font-bold">Music System</h2>
-              <p class="text-sm opacity-70">High-quality audio playback</p>
-            </div>
+      <!-- Features Category -->
+      <div id="category-features" class="category-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Music -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold mb-4"><i class="fas fa-music mr-2"></i>Music System</h3>
+            <label class="flex items-center justify-between cursor-pointer">
+              <span class="font-medium">Enable Music</span>
+              <div class="relative">
+                <input type="checkbox" name="features.music" class="sr-only toggle-input" 
+                       <%= settings.features?.music ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
+              </div>
+            </label>
           </div>
 
-          <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-            <span class="font-medium">Enable Music</span>
-            <div class="relative inline-block w-12 mr-2 align-middle select-none">
-              <input type="checkbox" 
-                     name="features.music" 
-                     id="toggle-music"
-                     <%= settings.features?.music ? 'checked' : '' %>
-                     class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                     style="right: 1.5rem;" />
-              <label for="toggle-music" 
-                     class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Leveling System -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">📊</span>
-            <div>
-              <h2 class="text-xl font-bold">Leveling System</h2>
-              <p class="text-sm opacity-70">Track member activity</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+          <!-- Leveling -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold mb-4"><i class="fas fa-chart-line mr-2"></i>Leveling</h3>
+            <label class="flex items-center justify-between cursor-pointer mb-4">
               <span class="font-medium">Enable Leveling</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="features.leveling" 
-                       id="toggle-leveling"
-                       <%= settings.features?.leveling ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-leveling" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              <div class="relative">
+                <input type="checkbox" name="features.leveling" class="sr-only toggle-input"
+                       <%= settings.features?.leveling ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
+            </label>
+            <label class="block text-sm font-medium mb-2">Level Up Channel</label>
+            <select name="leveling.channelId" class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:border-blue-500 focus:outline-none">
+              <option value="">None</option>
+              <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                <option value="<%= channel.id %>" <%= settings.leveling?.channelId === channel.id ? 'selected' : '' %>>
+                  #<%= channel.name %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+        </div>
+      </div>
 
-            <div>
-              <label class="block text-sm font-medium mb-2">Level Up Announcement Channel</label>
-              <select name="leveling.channelId" 
-                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
-                <option value="">None</option>
-                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
-                  <option value="<%= channel.id %>" <%= settings.leveling?.channelId === channel.id ? 'selected' : '' %>>
-                    #<%= channel.name %>
-                  </option>
-                <% }); %>
-              </select>
+      <!-- Welcome Category -->
+      <div id="category-welcome" class="category-content hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold mb-4"><i class="fas fa-hand-wave mr-2"></i>Welcome System</h3>
+            <div class="space-y-4">
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="font-medium">Enable Welcome</span>
+                <div class="relative">
+                  <input type="checkbox" name="welcome.enabled" class="sr-only toggle-input"
+                         <%= settings.welcome?.enabled ? 'checked' : '' %>>
+                  <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                  <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
+                </div>
+              </label>
+              <div>
+                <label class="block text-sm font-medium mb-2">Welcome Channel</label>
+                <select name="welcome.channelId" class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
+                  <option value="">Select Channel</option>
+                  <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                    <option value="<%= channel.id %>" <%= settings.welcome?.channelId === channel.id ? 'selected' : '' %>>
+                      #<%= channel.name %>
+                    </option>
+                  <% }); %>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Welcome Message</label>
+                <input type="text" name="welcome.message" value="<%= settings.welcome?.message || 'Welcome {user} to {server}!' %>"
+                       class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
+                <p class="text-xs opacity-60 mt-1">Variables: {user}, {server}, {memberCount}</p>
+              </div>
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="font-medium">Welcome Card</span>
+                <div class="relative">
+                  <input type="checkbox" name="welcome.card" class="sr-only toggle-input"
+                         <%= settings.welcome?.card ? 'checked' : '' %>>
+                  <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                  <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold mb-4"><i class="fas fa-door-closed mr-2"></i>Goodbye System</h3>
+            <div class="space-y-4">
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="font-medium">Enable Goodbye</span>
+                <div class="relative">
+                  <input type="checkbox" name="goodbye.enabled" class="sr-only toggle-input"
+                         <%= settings.goodbye?.enabled ? 'checked' : '' %>>
+                  <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                  <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
+                </div>
+              </label>
+              <div>
+                <label class="block text-sm font-medium mb-2">Goodbye Channel</label>
+                <select name="goodbye.channelId" class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
+                  <option value="">Select Channel</option>
+                  <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                    <option value="<%= channel.id %>" <%= settings.goodbye?.channelId === channel.id ? 'selected' : '' %>>
+                      #<%= channel.name %>
+                    </option>
+                  <% }); %>
+                </select>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Welcome System -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">👋</span>
-            <div>
-              <h2 class="text-xl font-bold">Welcome System</h2>
-              <p class="text-sm opacity-70">Greet new members</p>
-            </div>
-          </div>
-
+      <!-- Moderation Category -->
+      <div id="category-moderation" class="category-content hidden">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+          <h2 class="text-2xl font-bold mb-6"><i class="fas fa-shield-alt mr-2"></i>Moderation & Security</h2>
           <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Enable Welcome</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="welcome.enabled" 
-                       id="toggle-welcome"
-                       <%= settings.welcome?.enabled ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-welcome" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
+              <span class="font-medium">Enable Auto-Moderation</span>
+              <div class="relative">
+                <input type="checkbox" name="moderation.autoMod.enabled" class="sr-only toggle-input"
+                       <%= settings.moderation?.autoMod?.enabled ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">Welcome Channel</label>
-              <select name="welcome.channelId" 
-                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
-                <option value="">None</option>
-                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
-                  <option value="<%= channel.id %>" <%= settings.welcome?.channelId === channel.id ? 'selected' : '' %>>
-                    #<%= channel.name %>
-                  </option>
-                <% }); %>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">Welcome Message</label>
-              <input type="text" 
-                     name="welcome.message" 
-                     value="<%= settings.welcome?.message || 'Welcome {user} to {server}!' %>"
-                     placeholder="{user}, {server}, {memberCount}"
-                     class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
-              <p class="text-xs opacity-60 mt-2">Variables: {user}, {server}, {memberCount}</p>
-            </div>
-
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Welcome Card Image</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="welcome.card" 
-                       id="toggle-card"
-                       <%= settings.welcome?.card ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-card" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
+              <span class="font-medium">Anti-Spam (5 msg/5s → timeout)</span>
+              <div class="relative">
+                <input type="checkbox" name="moderation.autoMod.antiSpam" class="sr-only toggle-input"
+                       <%= settings.moderation?.autoMod?.antiSpam ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Goodbye System -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">👋</span>
-            <div>
-              <h2 class="text-xl font-bold">Goodbye System</h2>
-              <p class="text-sm opacity-70">Farewell messages</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Enable Goodbye</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="goodbye.enabled" 
-                       id="toggle-goodbye"
-                       <%= settings.goodbye?.enabled ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-goodbye" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
+              <span class="font-medium">Anti-Links (Block URLs)</span>
+              <div class="relative">
+                <input type="checkbox" name="moderation.autoMod.antiLinks" class="sr-only toggle-input"
+                       <%= settings.moderation?.autoMod?.antiLinks ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">Goodbye Channel</label>
-              <select name="goodbye.channelId" 
-                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
-                <option value="">None</option>
-                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
-                  <option value="<%= channel.id %>" <%= settings.goodbye?.channelId === channel.id ? 'selected' : '' %>>
-                    #<%= channel.name %>
-                  </option>
-                <% }); %>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI Chat -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">🤖</span>
-            <div>
-              <h2 class="text-xl font-bold">AI Chat</h2>
-              <p class="text-sm opacity-70">AI-powered conversations</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Enable AI Chat</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="aiChat.enabled" 
-                       id="toggle-ai"
-                       <%= settings.aiChat?.enabled ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-ai" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
+              <span class="font-medium">Anti-Invites (Block Discord invites)</span>
+              <div class="relative">
+                <input type="checkbox" name="moderation.autoMod.antiInvites" class="sr-only toggle-input"
+                       <%= settings.moderation?.autoMod?.antiInvites ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-2">AI Chat Channels (Ctrl+Click for multiple)</label>
-              <select name="aiChat.channels" 
-                      multiple 
-                      size="5"
-                      class="w-full px-4 py-2 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
-                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
-                  <option value="<%= channel.id %>" 
-                          class="py-2 px-2 hover:bg-white/10"
-                          <%= settings.aiChat?.channels?.includes(channel.id) ? 'selected' : '' %>>
-                    #<%= channel.name %>
-                  </option>
-                <% }); %>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Moderation & Security -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">🛡️</span>
-            <div>
-              <h2 class="text-xl font-bold">Security</h2>
-              <p class="text-sm opacity-70">Auto-moderation features</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Enable Auto-Mod</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="moderation.autoMod.enabled" 
-                       id="toggle-automod"
-                       <%= settings.moderation?.autoMod?.enabled ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-automod" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Anti-Spam</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="moderation.autoMod.antiSpam" 
-                       id="toggle-spam"
-                       <%= settings.moderation?.autoMod?.antiSpam ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-spam" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Anti-Links</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="moderation.autoMod.antiLinks" 
-                       id="toggle-links"
-                       <%= settings.moderation?.autoMod?.antiLinks ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-links" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
-              <span class="font-medium">Anti-Invites</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="moderation.autoMod.antiInvites" 
-                       id="toggle-invites"
-                       <%= settings.moderation?.autoMod?.antiInvites ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-invites" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
-              </div>
-            </div>
-
+            </label>
             <div>
               <label class="block text-sm font-medium mb-2">Moderation Log Channel</label>
-              <select name="moderation.logChannelId" 
-                      class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+              <select name="moderation.logChannelId" class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
                 <option value="">None</option>
                 <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
                   <option value="<%= channel.id %>" <%= settings.moderation?.logChannelId === channel.id ? 'selected' : '' %>>
@@ -417,98 +256,137 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Economy -->
-        <div class="glass-effect rounded-xl p-6">
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="text-3xl">💰</span>
-            <div>
-              <h2 class="text-xl font-bold">Economy</h2>
-              <p class="text-sm opacity-70">Currency system</p>
-            </div>
-          </div>
-
+      <!-- Economy Category -->
+      <div id="category-economy" class="category-content hidden">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+          <h2 class="text-2xl font-bold mb-6"><i class="fas fa-coins mr-2"></i>Economy System</h2>
           <div class="space-y-4">
-            <div class="flex items-center justify-between p-4 rounded-lg bg-black/20">
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
               <span class="font-medium">Enable Economy</span>
-              <div class="relative inline-block w-12 mr-2 align-middle select-none">
-                <input type="checkbox" 
-                       name="features.economy" 
-                       id="toggle-economy"
-                       <%= settings.features?.economy ? 'checked' : '' %>
-                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-200" 
-                       style="right: 1.5rem;" />
-                <label for="toggle-economy" 
-                       class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-600 cursor-pointer transition-colors duration-200"></label>
+              <div class="relative">
+                <input type="checkbox" name="features.economy" class="sr-only toggle-input"
+                       <%= settings.features?.economy ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
               </div>
-            </div>
-
+            </label>
             <div>
               <label class="block text-sm font-medium mb-2">Daily Reward Amount</label>
-              <input type="number" 
-                     name="economy.daily.amount" 
-                     value="<%= settings.economy?.daily?.amount || 100 %>"
-                     min="1" 
-                     max="10000"
-                     class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20 focus:border-blue-500 focus:outline-none transition-colors">
+              <input type="number" name="economy.daily.amount" value="<%= settings.economy?.daily?.amount || 100 %>"
+                     min="1" max="10000"
+                     class="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Chat Category -->
+      <div id="category-ai" class="category-content hidden">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+          <h2 class="text-2xl font-bold mb-6"><i class="fas fa-robot mr-2"></i>AI Chat System</h2>
+          <div class="space-y-4">
+            <label class="flex items-center justify-between cursor-pointer p-4 bg-black/20 rounded-lg">
+              <span class="font-medium">Enable AI Chat</span>
+              <div class="relative">
+                <input type="checkbox" name="aiChat.enabled" class="sr-only toggle-input"
+                       <%= settings.aiChat?.enabled ? 'checked' : '' %>>
+                <div class="toggle-bg w-14 h-7 bg-gray-600 rounded-full transition-colors"></div>
+                <div class="toggle-dot absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform"></div>
+              </div>
+            </label>
+            <div>
+              <label class="block text-sm font-medium mb-2">AI Chat Channels (Ctrl+Click for multiple)</label>
+              <select name="aiChat.channels" multiple size="6"
+                      class="w-full px-4 py-2 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:border-blue-500">
+                <% guild.channels.cache.filter(c => c.type === 0).forEach(channel => { %>
+                  <option value="<%= channel.id %>" class="py-2 hover:bg-white/10"
+                          <%= settings.aiChat?.channels?.includes(channel.id) ? 'selected' : '' %>>
+                    #<%= channel.name %>
+                  </option>
+                <% }); %>
+              </select>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Save Button -->
-      <div class="glass-effect rounded-xl p-6">
-        <button type="submit" 
-                class="w-full py-4 px-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]">
-          💾 Save All Settings
+      <div class="mt-8">
+        <button type="submit" class="w-full py-4 px-6 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02]">
+          <i class="fas fa-save mr-2"></i>Save All Settings
         </button>
       </div>
     </form>
   </div>
 
-  <!-- Notification Toast -->
-  <div id="notification" 
-       class="fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl hidden z-50"
-       style="min-width: 300px;">
-    <div class="flex items-center space-x-3">
-      <span id="notification-icon" class="text-2xl"></span>
-      <span id="notification-text" class="font-medium"></span>
-    </div>
-  </div>
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl hidden transform transition-all z-50"></div>
 
   <script>
+    // Category switching
+    function showCategory(category) {
+      document.querySelectorAll('.category-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-500');
+        btn.classList.add('bg-white/10');
+      });
+      document.getElementById(`category-${category}`).classList.remove('hidden');
+      document.querySelector(`[data-category="${category}"]`).classList.add('bg-blue-500');
+      document.querySelector(`[data-category="${category}"]`).classList.remove('bg-white/10');
+    }
+
+    // Toggle switches
+    document.querySelectorAll('.toggle-input').forEach(input => {
+      const bg = input.nextElementSibling;
+      const dot = bg.nextElementSibling;
+      
+      function updateToggle() {
+        if (input.checked) {
+          bg.classList.remove('bg-gray-600');
+          bg.classList.add('bg-green-500');
+          dot.style.transform = 'translateX(28px)';
+        } else {
+          bg.classList.add('bg-gray-600');
+          bg.classList.remove('bg-green-500');
+          dot.style.transform = 'translateX(0)';
+        }
+      }
+      
+      updateToggle();
+      input.addEventListener('change', updateToggle);
+      bg.parentElement.addEventListener('click', (e) => {
+        if (e.target !== input) {
+          input.checked = !input.checked;
+          updateToggle();
+        }
+      });
+    });
+
     // Form submission
     document.getElementById('settingsForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      
       const formData = new FormData(e.target);
-      
-      // Helper to get checkbox values
-      const getCheckbox = (name) => {
-        const input = document.querySelector(`input[name="${name}"]`);
-        return input ? input.checked : false;
-      };
-
-      // Build settings object
       const settings = {
         prefix: formData.get('prefix'),
         features: {
-          music: getCheckbox('features.music'),
-          leveling: getCheckbox('features.leveling'),
-          economy: getCheckbox('features.economy'),
+          music: document.querySelector('[name="features.music"]').checked,
+          leveling: document.querySelector('[name="features.leveling"]').checked,
+          economy: document.querySelector('[name="features.economy"]').checked,
         },
         welcome: {
-          enabled: getCheckbox('welcome.enabled'),
+          enabled: document.querySelector('[name="welcome.enabled"]').checked,
           channelId: formData.get('welcome.channelId') || null,
           message: formData.get('welcome.message'),
-          card: getCheckbox('welcome.card'),
+          card: document.querySelector('[name="welcome.card"]').checked,
         },
         goodbye: {
-          enabled: getCheckbox('goodbye.enabled'),
+          enabled: document.querySelector('[name="goodbye.enabled"]').checked,
           channelId: formData.get('goodbye.channelId') || null,
         },
         aiChat: {
-          enabled: getCheckbox('aiChat.enabled'),
+          enabled: document.querySelector('[name="aiChat.enabled"]').checked,
           channels: Array.from(formData.getAll('aiChat.channels')),
         },
         leveling: {
@@ -516,10 +394,10 @@
         },
         moderation: {
           autoMod: {
-            enabled: getCheckbox('moderation.autoMod.enabled'),
-            antiSpam: getCheckbox('moderation.autoMod.antiSpam'),
-            antiLinks: getCheckbox('moderation.autoMod.antiLinks'),
-            antiInvites: getCheckbox('moderation.autoMod.antiInvites'),
+            enabled: document.querySelector('[name="moderation.autoMod.enabled"]').checked,
+            antiSpam: document.querySelector('[name="moderation.autoMod.antiSpam"]').checked,
+            antiLinks: document.querySelector('[name="moderation.autoMod.antiLinks"]').checked,
+            antiInvites: document.querySelector('[name="moderation.autoMod.antiInvites"]').checked,
           },
           logChannelId: formData.get('moderation.logChannelId') || null,
         },
@@ -537,34 +415,25 @@
           body: JSON.stringify(settings)
         });
 
-        const result = await response.json();
-        
         if (response.ok) {
-          showNotification('✅', 'Settings saved successfully!', false);
+          showToast('✅ Settings saved successfully!', 'success');
         } else {
-          showNotification('❌', 'Failed to save settings', true);
+          const result = await response.json();
+          showToast('❌ ' + (result.error || 'Failed to save'), 'error');
         }
       } catch (error) {
-        showNotification('❌', 'Network error', true);
+        showToast('❌ Network error', 'error');
       }
     });
 
-    function showNotification(icon, text, isError) {
-      const notification = document.getElementById('notification');
-      const notificationIcon = document.getElementById('notification-icon');
-      const notificationText = document.getElementById('notification-text');
-      
-      notificationIcon.textContent = icon;
-      notificationText.textContent = text;
-      
-      notification.className = `notification fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl z-50 ${
-        isError ? 'bg-red-500' : 'bg-green-500'
+    function showToast(message, type) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `fixed top-6 right-6 px-6 py-4 rounded-lg shadow-2xl transform transition-all z-50 ${
+        type === 'success' ? 'bg-green-500' : 'bg-red-500'
       }`;
-      notification.style.display = 'block';
-      
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 3000);
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
     }
   </script>
 </body>
